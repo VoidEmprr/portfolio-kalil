@@ -1,153 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portofolio Lil</title>
-<style>
-  /* Warna Monokrom: hitam, putih, abu */
-  body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #111;
-    color: #fff;
-    overflow-x: hidden;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Khalil Zayan</title>
 
-  /* Animasi Fade In */
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
     }
-  }
 
-  header {
-    text-align: center;
-    padding: 100px 20px;
-    animation: fadeInUp 1s ease forwards;
-  }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.85);
+      padding: 20px;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-  }
+    header h1 {
+      font-size: 1.8em;
+    }
 
-  header p {
-    font-size: 1.2em;
-    color: #aaa;
-  }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
 
-  nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 20px 0;
-    background: #222;
-    animation: fadeInUp 1s ease 0.3s forwards;
-    opacity: 0;
-  }
+    nav a:hover {
+      color: #00d4ff;
+    }
 
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
+    section {
+      min-height: 100vh;
+      padding: 120px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-  nav a:hover {
-    color: #aaa;
-  }
+    .container {
+      max-width: 1100px;
+    }
 
-  section {
-    padding: 80px 20px;
-    max-width: 1000px;
-    margin: auto;
-  }
+    /* HERO */
+    #hero {
+      background: linear-gradient(135deg, #3f60f5, #217d6e);
+      position: relative;
+    }
 
-  .project {
-    background: #1a1a1a;
-    margin-bottom: 40px;
-    padding: 30px;
-    border-radius: 10px;
-    transform: scale(0.95);
-    opacity: 0;
-    animation: fadeInUp 0.8s ease forwards;
-  }
+    #hero h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+      animation: fadeUp 1s ease;
+    }
 
-  .project:nth-child(1) { animation-delay: 0.2s; }
-  .project:nth-child(2) { animation-delay: 0.4s; }
-  .project:nth-child(3) { animation-delay: 0.6s; }
+    #hero p {
+      font-size: 1.2em;
+      animation: fadeUp 1.4s ease;
+    }
 
-  .project h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
-  }
+    /* FOTO */
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid rgba(255,255,255,0.6);
+      box-shadow: 0 0 25px rgba(0,212,255,0.5);
+    }
 
-  footer {
-    text-align: center;
-    padding: 40px 20px;
-    background: #222;
-    color: #aaa;
-    font-size: 0.9em;
-    animation: fadeInUp 1s ease 0.5s forwards;
-    opacity: 0;
-  }
+    /* ABOUT */
+    #about {
+      background: #111;
+    }
 
-  /* Hover Effect untuk Project */
-  .project:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
-  }
-</style>
+    #about p {
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    /* PROJECT */
+    #projects {
+      background: #1b1b1b;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: #2a2a2a;
+      padding: 25px;
+      border-radius: 12px;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,212,255,0.25);
+    }
+
+    /* CONTACT */
+    #contact {
+      background: #111;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      background: #333;
+      border: none;
+      border-radius: 6px;
+      color: white;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: #00d4ff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #00aacc;
+    }
+
+    /* TOOLS */
+    #tools {
+      background: #0f0f0f;
+    }
+
+    /* FOOTER */
+    footer {
+      background: black;
+      text-align: center;
+      padding: 20px;
+      color: #777;
+    }
+
+    /* SOCIAL */
+    .social-contact a {
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    .social-contact a:hover {
+      color: #66e6ff;
+    }
+
+    /* MARQUEE */
+    marquee {
+      margin: 60px 0;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(max-width:768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      #hero h1 {
+        font-size: 2.2em;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-  <h1>Portofolio</h1>
-  <p> | Monochrome Style | </p>
+  <h1>Zyn</h1>
+  <nav>
+    <a href="#hero">Beranda</a>
+    <a href="#about">Tentang</a>
+    <a href="#projects">Skill</a>
+    <a href="#contact">Kontak</a>
+  </nav>
 </header>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#projects">skill</a>
-  <a href="#contact">Contact</a>
-</nav>
+<section id="hero">
+  <div class="container">
+    <h1>Selamat Datang di Portofolio Khalil</h1>
+    <p>Developer Kreatif • Desainer Web</p>
+  </div>
+</section>
 
 <section id="about">
-  <h2>About Me</h2>
-  <p>Halo my name is khalil, saya bersekolah di sma 7 bpp, menduduki kelas 11 ipas 1, hobi saya berolahraga,melakukan hal-hal positif baru.</p>
+  <div class="container">
+    <img src="IMG_9597.png" class="hero-photo" alt="Khalil">
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya adalah siswa SMA 7 kelas IPAS 1. Saya mampu membuat website,
+      memiliki hobi olahraga, foto/video, dan mengikuti program dual track multimedia.
+    </p>
+  </div>
 </section>
 
 <section id="projects">
-  <h2>karya</h2>
-
-  <div class="project">
-    <h2>Skill 1</h2>
-    <p>saya memiliki skill fotografi dan videografi.</p>
+  <div class="container">
+    <h2>Skill</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Fotografi</h3>
+        <p>Dokumentasi kegiatan sekolah dan objek sekitar.</p>
+      </div>
+      <div class="project-card">
+        <h3>Public Speaking</h3>
+        <p>Berbicara di depan umum dengan percaya diri.</p>
+      </div>
+      <div class="project-card">
+        <h3>Penggunaan AI</h3>
+        <p>Pemanfaatan AI untuk kebutuhan kreatif.</p>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="project">
-    <h2>Skill 2</h2>
-    <p>memiliki skill editing atau desain gambar.</p>
-  </div>
-
-  <div class="project">
-    <h2>Skill 3</h2>
-    <p>sedikit bisa berbicara di depan unum.</p>
+<section id="tools">
+  <div class="container">
+    <h2>Tools yang Saya Gunakan</h2>
+    <p>HTML • CSS • CapCut • Kamera • AI Tools</p>
   </div>
 </section>
 
 <section id="contact">
-  <h2>Contact Me</h2>
-  <p>ig: aka_zyn</p>
+  <div class="container">
+    <h2>Hubungi Saya</h2>
+    <form>
+      <input type="text" placeholder="Nama" required>
+      <input type="email" placeholder="Email" required>
+      <textarea rows="5" placeholder="Pesan" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+
+    <div class="social-contact">
+      <p><a href="mailto:thezyynn@gmail.com">thezyynn@gmail.com</a></p>
+      <p><a href="https://www.instagram.com/aka_zyn/" target="_blank">@aka_zyn</a></p>
+    </div>
+  </div>
 </section>
 
+<center>
+  <marquee width="90%">
+    <h2>✨ Thank you guys ✨</h2>
+  </marquee>
+</center>
+
 <footer>
-  &copy; by khalil 2025.
+  <p>© 2026 • Khalil Zayan</p>
 </footer>
 
 </body>

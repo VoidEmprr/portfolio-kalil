@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Lil</title>
+<style>
+  /* Warna Monokrom: hitam, putih, abu */
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #111;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* Animasi Fade In */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  header {
+    text-align: center;
+    padding: 100px 20px;
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  header h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    font-size: 1.2em;
+    color: #aaa;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    background: #222;
+    animation: fadeInUp 1s ease 0.3s forwards;
+    opacity: 0;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #aaa;
+  }
+
+  section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .project {
+    background: #1a1a1a;
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 10px;
+    transform: scale(0.95);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .project:nth-child(1) { animation-delay: 0.2s; }
+  .project:nth-child(2) { animation-delay: 0.4s; }
+  .project:nth-child(3) { animation-delay: 0.6s; }
+
+  .project h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #222;
+    color: #aaa;
+    font-size: 0.9em;
+    animation: fadeInUp 1s ease 0.5s forwards;
+    opacity: 0;
+  }
+
+  /* Hover Effect untuk Project */
+  .project:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Portofolio</h1>
+  <p> | Monochrome Style | </p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">skill</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>Halo my name is khalil, saya bersekolah di sma 7 bpp, menduduki kelas 11 ipas 1, hobi saya berolahraga,melakukan hal-hal positif baru.</p>
+</section>
+
+<section id="projects">
+  <h2>karya</h2>
+
+  <div class="project">
+    <h2>Skill 1</h2>
+    <p>saya memiliki skill fotografi dan videografi.</p>
+  </div>
+
+  <div class="project">
+    <h2>Skill 2</h2>
+    <p>memiliki skill editing atau desain gambar.</p>
+  </div>
+
+  <div class="project">
+    <h2>Skill 3</h2>
+    <p>sedikit bisa berbicara di depan unum.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>ig: aka_zyn</p>
+</section>
+
+<footer>
+  &copy; by khalil 2025.
+</footer>
+
+</body>
+</html>

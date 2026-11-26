@@ -1,203 +1,240 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Khalil Zayan</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Khalil Zayan</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<!-- FONT AWESOME UNTUK IKON -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0a0a0a;
-      color: white;
-      overflow-x: hidden;
-    }
+<style>
+/* SMOOTH SCROLL */
+html{
+  scroll-behavior:smooth;
+}
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.85);
-      padding: 20px;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
 
-    header h1 {
-      font-size: 1.8em;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:#0a0a0a;
+  color:white;
+  overflow-x:hidden;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      transition: 0.3s;
-    }
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:rgba(0,0,0,.85);
+  padding:20px;
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:100;
+  animation:slideDown .8s ease-out;
+}
+header h1{
+  transition:transform .3s ease, text-shadow .3s ease;
+}
+header h1:hover{
+  transform:scale(1.05);
+  text-shadow:0 0 15px rgba(0,212,255,.8);
+}
+nav a{
+  color:white;
+  text-decoration:none;
+  margin-left:20px;
+  position:relative;
+  transition:.3s;
+}
+nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:#00d4ff;
+  transition:width .3s ease;
+}
+nav a:hover{color:#00d4ff}
+nav a:hover::after{width:100%}
 
-    nav a:hover {
-      color: #00d4ff;
-    }
+/* SECTION */
+section{
+  min-height:100vh;
+  padding:120px 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.container{max-width:1100px}
 
-    section {
-      min-height: 100vh;
-      padding: 120px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+/* HERO */
+#hero{
+  background:linear-gradient(135deg,#3f60f5,#217d6e,#3f60f5);
+  background-size:200% 200%;
+  animation:gradientShift 8s ease infinite;
+}
+#hero h1{
+  font-size:3em;
+  margin-bottom:15px;
+  animation:textGlow 3s ease-in-out infinite alternate;
+}
 
-    .container {
-      max-width: 1100px;
-    }
+/* FOTO DENGAN FITUR KLIK ZOOM */
+.hero-photo{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:20px;
+  border:3px solid rgba(255,255,255,.6);
+  box-shadow:0 0 25px rgba(0,212,255,.5);
+  cursor:pointer;
+  transition:transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+.hero-photo:hover{
+  box-shadow:0 0 35px rgba(0,212,255,.9);
+}
+.hero-photo.active{
+  transform:scale(2);
+  box-shadow:0 0 50px rgba(0,212,255,1);
+  position:relative;
+  z-index:50;
+}
 
-    /* HERO */
-    #hero {
-      background: linear-gradient(135deg, #3f60f5, #217d6e);
-      position: relative;
-    }
+/* PROJECT */
+#projects{background:#1b1b1b}
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;margin-top:40px
+}
+.project-card{
+  background:#2a2a2a;
+  padding:25px;
+  border-radius:12px;
+  transition:transform .4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .4s ease, background .3s ease;
+}
+.project-card:hover{
+  transform:translateY(-10px) scale(1.02);
+  background:#323232;
+  box-shadow:0 15px 35px rgba(0,212,255,.25)
+}
+.project-card:nth-child(1){transition-delay:.1s}
+.project-card:nth-child(2){transition-delay:.25s}
+.project-card:nth-child(3){transition-delay:.4s}
 
-    #hero h1 {
-      font-size: 3em;
-      margin-bottom: 15px;
-      animation: fadeUp 1s ease;
-    }
+/* FORM */
+#about,#contact{background:#111}
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  background:#333;
+  border:1px solid transparent;
+  border-radius:6px;
+  color:white;
+  transition:border-color .3s ease, box-shadow .3s ease, transform .2s ease;
+}
+input:focus,textarea:focus{
+  outline:none;
+  border-color:#00d4ff;
+  box-shadow:0 0 12px rgba(0,212,255,.35);
+  transform:translateY(-2px);
+}
+button{
+  margin-top:15px;
+  padding:12px 25px;
+  background:#00d4ff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 20px rgba(0,212,255,.45);
+  background:#33deff;
+}
+button:active{
+  transform:scale(.96);
+}
 
-    #hero p {
-      font-size: 1.2em;
-      animation: fadeUp 1.4s ease;
-    }
+/* SOCIAL MEDIA BUTTONS */
+.social-links{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:25px;
+}
+.social-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-decoration:none;
+  color:white;
+  font-size: 22px;
+  transition:transform .3s ease, box-shadow .3s ease, opacity .3s ease;
+}
+.social-btn:hover{
+  transform:translateY(-3px);
+  opacity:0.9;
+}
+.instagram{
+  background:linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  box-shadow:0 4px 15px rgba(220, 39, 67, 0.4);
+}
+.tiktok{
+  background:#000000;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow:0 4px 15px rgba(0, 212, 255, 0.3);
+}
 
-    /* FOTO */
-    .hero-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid rgba(255,255,255,0.6);
-      box-shadow: 0 0 25px rgba(0,212,255,0.5);
-    }
+/* SCROLL ANIMATION */
+.scroll{
+  opacity:0;
+  transform:translateY(50px) scale(.96);
+  transition:opacity 1s cubic-bezier(0.22, 1, 0.36, 1), transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.scroll.show{
+  opacity:1;
+  transform:translateY(0) scale(1)
+}
 
-    /* ABOUT */
-    #about {
-      background: #111;
-    }
+/* KEYFRAMES */
+@keyframes slideDown{
+  from{transform:translateY(-100%);opacity:0}
+  to{transform:translateY(0);opacity:1}
+}
+@keyframes gradientShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes textGlow{
+  from{text-shadow:0 0 10px rgba(255,255,255,.2)}
+  to{text-shadow:0 0 25px rgba(0,212,255,.7)}
+}
 
-    #about p {
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.7;
-      color: #ccc;
-    }
-
-    /* PROJECT */
-    #projects {
-      background: #1b1b1b;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .project-card {
-      background: #2a2a2a;
-      padding: 25px;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0,212,255,0.25);
-    }
-
-    /* CONTACT */
-    #contact {
-      background: #111;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 12px;
-      background: #333;
-      border: none;
-      border-radius: 6px;
-      color: white;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 12px 25px;
-      background: #00d4ff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    button:hover {
-      background: #00aacc;
-    }
-
-    /* TOOLS */
-    #tools {
-      background: #0f0f0f;
-    }
-
-    /* FOOTER */
-    footer {
-      background: black;
-      text-align: center;
-      padding: 20px;
-      color: #777;
-    }
-
-    /* SOCIAL */
-    .social-contact a {
-      color: #00d4ff;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-
-    .social-contact a:hover {
-      color: #66e6ff;
-    }
-
-    /* MARQUEE */
-    marquee {
-      margin: 60px 0;
-    }
-
-    /* ANIMATION */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media(max-width:768px) {
-      header {
-        flex-direction: column;
-        gap: 10px;
-      }
-      #hero h1 {
-        font-size: 2.2em;
-      }
-    }
-  </style>
+/* FOOTER */
+footer{
+  background:black;
+  text-align:center;
+  padding:20px;
+  color:#777
+}
+</style>
 </head>
 
 <body>
@@ -213,7 +250,7 @@
 </header>
 
 <section id="hero">
-  <div class="container">
+  <div class="container scroll">
     <h1>Selamat Datang di Portofolio Khalil</h1>
     <p>Developer Kreatif • Desainer Web</p>
   </div>
@@ -221,68 +258,75 @@
 
 <section id="about">
   <div class="container">
-    <img src="IMG_9597.png" class="hero-photo" alt="Khalil">
-    <h2>Tentang Saya</h2>
-    <p>
-      Saya adalah siswa SMA 7 kelas IPAS 1. Saya mampu membuat website,
-      memiliki hobi olahraga, foto/video, dan mengikuti program dual track multimedia.
+    <img src="/IMG_6539.jpeg" class="hero-photo scroll" id="profilePhoto" alt="Foto Khalil">
+    <h2 class="scroll">Tentang Saya</h2>
+    <p class="scroll">
+      Saya siswa SMA 7 IPAS 1, hobi foto/video, web development, dan multimedia.
     </p>
   </div>
 </section>
 
 <section id="projects">
   <div class="container">
-    <h2>Skill</h2>
+    <h2 class="scroll">Skill</h2>
     <div class="project-grid">
-      <div class="project-card">
-        <h3>Fotografi</h3>
-        <p>Dokumentasi kegiatan sekolah dan objek sekitar.</p>
-      </div>
-      <div class="project-card">
-        <h3>Public Speaking</h3>
-        <p>Berbicara di depan umum dengan percaya diri.</p>
-      </div>
-      <div class="project-card">
-        <h3>Penggunaan AI</h3>
-        <p>Pemanfaatan AI untuk kebutuhan kreatif.</p>
-      </div>
+      <div class="project-card scroll"><h3>Fotografi</h3><p>Visual dokumentasi</p></div>
+      <div class="project-card scroll"><h3>Public Speaking</h3><p>Percaya diri, bertanggung jawab, berfikir kritis</p></div>
+      <div class="project-card scroll"><h3>AI Tools</h3><p>Kreatif & efisien</p></div>
     </div>
   </div>
 </section>
 
-<section id="tools">
-  <div class="container">
-    <h2>Tools yang Saya Gunakan</h2>
-    <p>HTML • CSS • CapCut • Kamera • AI Tools</p>
-  </div>
-</section>
-
 <section id="contact">
-  <div class="container">
+  <div class="container scroll">
     <h2>Hubungi Saya</h2>
     <form>
-      <input type="text" placeholder="Nama" required>
+      <input placeholder="Nama" required>
       <input type="email" placeholder="Email" required>
       <textarea rows="5" placeholder="Pesan" required></textarea>
       <button type="submit">Kirim</button>
     </form>
 
-    <div class="social-contact">
-      <p><a href="mailto:thezyynn@gmail.com">thezyynn@gmail.com</a></p>
-      <p><a href="https://www.instagram.com/aka_zyn/" target="_blank">@aka_zyn</a></p>
+    <!-- TOMBOL INSTAGRAM & TIKTOK -->
+    <div class="social-links">
+      <a href="https://www.instagram.com/aka_zyn?gwpx=MXFnOHo5a3hwN3MyNA%3D%3D&utm_source=qr" target="_blank" class="social-btn instagram" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.tiktok.com/@zayan_289?_r=1&_t=ZS-9BjBBX6aGp7" target="_blank" class="social-btn tiktok" title="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
     </div>
   </div>
 </section>
 
-<center>
-  <marquee width="90%">
-    <h2>✨ Thank you guys ✨</h2>
-  </marquee>
-</center>
-
 <footer>
   <p>© 2026 • Khalil Zayan</p>
 </footer>
+
+<script>
+/* scroll reveal */
+const els=document.querySelectorAll(".scroll");
+const inView=e=>e.getBoundingClientRect().top<=window.innerHeight-100;
+const run=()=>els.forEach(el=>inView(el)&&el.classList.add("show"));
+window.addEventListener("scroll",run);run();
+
+/* smooth scroll */
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click",function(e){
+    e.preventDefault();
+    const target=document.querySelector(this.getAttribute("href"));
+    if(target){
+      target.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  });
+});
+
+/* Toggle Zoom Foto Profil saat diklik */
+const photo = document.getElementById("profilePhoto");
+photo.addEventListener("click", () => {
+  photo.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
